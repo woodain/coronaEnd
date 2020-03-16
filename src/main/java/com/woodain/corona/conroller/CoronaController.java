@@ -15,21 +15,27 @@ public class CoronaController {
         this.coronaService = coronaService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping(value="/")
     public String main()
     {
-        return "mainPage";
+        return "index";
     }
 
-    @RequestMapping("/domestic")
+    @RequestMapping(value="/test")
+    public String test()
+    {
+        return "index";
+    }
+
+    @RequestMapping(value="/domestic")
     public String getDomestic()
     {
         return coronaService.getCoronaDomesticInfo();
     }
 
-    @RequestMapping("/foreign")
+    @RequestMapping(value="/foreign")
     public String getForeign()
     {
-        return "foreign";
+        return coronaService.getCoronaForeignInfo();
     }
 }
